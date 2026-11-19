@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Love Story ❤️</title>
+
+<style>
+
+/* CÀI ĐẶT CHUNG */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe0ec, #ffd1e1, #fff0f5);
+    color: #bd376e;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 30px;
+    padding: 14px 28px;
+    background: #ff4f91;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e84383;
+    transform: scale(1.05);
+}
+
+/* MÀN HÌNH MẬT KHẨU */
+
+#lockScreen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.lock-heart {
+    font-size: 75px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+#lockScreen h1 {
+    font-size: 35px;
+    color: #e84383;
+}
+
+#password {
+    width: 260px;
+    padding: 15px;
+    border: 2px solid #ff80ab;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+}
+
+#error {
+    color: #e63946;
+    font-size: 15px;
+}
+
+/* PHẦN PHONG THƯ */
+
+#envelopeScreen {
+    display: none;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.envelope {
+    font-size: 110px;
+    cursor: pointer;
+    animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.envelope-title {
+    color: #e84383;
+    font-size: 27px;
+}
+
+.envelope-text {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* NỘI DUNG WEBSITE */
+
+#loveWebsite {
+    display: none;
+    padding: 20px;
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    padding: 40px 10px;
+}
+
+header h1 {
+    font-size: 40px;
+    color: #e84383;
+}
+
+.subtitle {
+    font-size: 18px;
+}
+
+.container {
+    background: rgba(255,255,255,0.92);
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 30px 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(232,67,131,0.15);
+}
+
+.container h2 {
+    color: #e84383;
+}
+
+.big-heart {
+    font-size: 55px;
+    animation: heartbeat 1.2s infinite;
+}
+
+/* BỘ ĐẾM NGÀY YÊU */
+
+.love-days {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ff4081;
+}
+
+.love-subtitle {
+    font-size: 15px;
+    color: #a85b79;
+}
+
+/* BỨC THƯ TÌNH */
+
+.love-letter {
+    background: #fffafd;
+    border: 2px solid #ffc1d6;
+    text-align: left;
+    line-height: 2;
+    font-size: 16px;
+    color: #87445f;
+    white-space: normal;
+}
+
+.letter-title {
+    text-align: center;
+    color: #e84383;
+    font-family: Georgia, serif;
+    line-height: 1.5;
+}
+
+.letter-end {
+    text-align: center;
+    color: #e84383;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+/* TRÁI TIM BAY */
+
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+    font-size: 22px;
+    animation: fly 6s linear forwards;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 10px;
+    color: #d6336c;
+}
+
+footer h2 {
+    color: #e84383;
+}
+
+/* ĐIỆN THOẠI */
+
+@media (max-width: 500px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .love-days {
+        font-size: 34px;
+    }
+
+    .container {
+        padding: 25px 18px;
+    }
+
+    .love-letter {
+        font-size: 15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- 1. MÀN HÌNH NHẬP MẬT KHẨU -->
+
+<div id="lockScreen">
+
+    <div class="lock-heart">💗</div>
+
+    <h1>Our Secret Love</h1>
+
+    <p>
+        Chào mừng anh đến với thế giới nhỏ
+        chỉ dành riêng cho hai chúng ta.
+    </p>
+
+    <p>🔐 Nhập mật khẩu để mở món quà nhé!</p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Nhập mật khẩu..."
+        onkeydown="if(event.key === 'Enter') unlockLove()"
+    >
+
+    <button onclick="unlockLove()">
+        Mở khóa tình yêu 💌
+    </button>
+
+    <p id="error"></p>
+
+    <p>Made with ❤️ for my husband</p>
+
+</div>
+
+
+<!-- 2. MÀN HÌNH PHONG THƯ -->
+
+<div id="envelopeScreen">
+
+    <div class="envelope" onclick="openLetter()">
+        💌
+    </div>
+
+    <h2 class="envelope-title">
+        Gửi chồng yêu của emm ❤️
+    </h2>
+
+    <p class="envelope-text">
+        Anh ơi, em có một điều muốn nói...<br>
+        Nhấn vào chiếc thư để đọc nhé! 🥺💕
+    </p>
+
+    <button onclick="openLetter()">
+        Mở thư tình ❤️
+    </button>
+
+</div>
+
+
+<!-- 3. WEBSITE TÌNH YÊU -->
+
+<div id="loveWebsite">
+
+    <header>
+
+        <div class="big-heart">❤️</div>
+
+        <h1>Our Love Story</h1>
+
+        <p class="subtitle">
+            Câu chuyện tình yêu của hai chúng ta 💕
+        </p>
+
+    </header>
+
+
+    <!-- HAI NHÂN VẬT CHÍNH -->
+
+    <div class="container">
+
+        <h2>💑 Hai nhân vật chính</h2>
+
+        <h1>Anh ❤️ Em</h1>
+
+        <p>
+            Hai con người, hai trái tim,
+            nhưng cùng chung một nhịp đập.
+        </p>
+
+    </div>
+
+
+    <!-- ĐẾM NGÀY YÊU -->
+
+    <div class="container">
+
+        <h2>⏳ Chúng mình đã bên nhau</h2>
+
+        <div class="love-days" id="days">
+            365 ngày ❤️
+        </div>
+
+        <p class="love-subtitle">
+            Và mong rằng sẽ còn thật nhiều năm tháng bên nhau.
+        </p>
+
+    </div>
+
+
+    <!-- BỨC THƯ TÌNH -->
+
+    <div class="container love-letter">
+
+        <div style="text-align:center; font-size:50px;">
+            💌
+        </div>
+
+        <h2 class="letter-title">
+            Gửi anhh, chồng yêuu của emm 😘❤️
+        </h2>
+
+        <p>
+            Vậy là chúng mình đã bên nhau được 1 năm rồi đấy.
+            Một năm không quá dài nhưng cũng đủ để hai đứa
+            có thật nhiều kỷ niệm, từ những niềm vui nhỏ bé,
+            những lúc giận hờn vu vơ đến cả những chuyện
+            không được như ý muốn.
+        </p>
+
+        <p>
+            Em chẳng nỡ xa anh một chút nào 🥺
+        </p>
+
+        <p>
+            Có những lúc chẳng dễ dàng gì, nhưng điều em
+            trân trọng nhất là sau tất cả, chúng mình vẫn
+            luôn chọn ở lại, chọn yêu thương, bao dung,
+            lắng nghe và cùng nhau cố gắng.
+        </p>
+
+        <p>
+            Cảm ơn chồng vì đã xuất hiện và trở thành 1 phần
+            không thể thiếu trong cuộc sống của em.
+            Cảm ơn vì đã yêu thương, quan tâm, nhường nhịn
+            và luôn là một người đặc biệt để em có thể
+            chia sẻ mọi điều trong cuộc sống.
+        </p>
+
+        <p>
+            Em mong rằng dù sau này có thêm bao nhiêu vui buồn
+            hay thử thách, hai đứa vẫn sẽ luôn nắm tay nhau,
+            cùng nhau trưởng thành và thương nhau nhiều hơn
+            ngày hôm qua nhé.
+        </p>
+
+        <p>
+            Nhân ngày Quốc tế Đàn ông, chúc chồng yêu của em
+            luôn mạnh khỏe, bình an, vui vẻ và hạnh phúc.
+            Mong mọi điều anh cố gắng đều có kết quả thật tốt,
+            công việc luôn thuận lợi, những dự định sắp tới
+            sẽ đều đạt được.
+        </p>
+
+        <p>
+            Em sẽ luôn yêu thương, dành cho anh những điều
+            dịu dàng và tốt đẹp nhất.
+        </p>
+
+        <div class="letter-end">
+
+            Nhớ anhh và yêuu anh rất nhiềuuu 💕💕
+
+            <p>❤️ Mãi yêu chồng ❤️</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LỜI NHẮN BÍ MẬT -->
+
+    <div class="container">
+
+        <h2>🎁 Một điều muốn nói với anh</h2>
+
+        <p>
+            Có một món quà nhỏ dành cho chồng yêu!
+        </p>
+
+        <button onclick="showLove()">
+            Nhấn vào đây nhé 💗
+        </button>
+
+        <h2 id="surprise"></h2>
+
+    </div>
+
+
+    <!-- KẾT THÚC -->
+
+    <footer>
+
+        <div style="font-size:40px;">
+            💗 💕 💗
+        </div>
+
+        <h2>Forever Together</h2>
+
+        <p>
+            Cảm ơn vì chúng ta đã gặp được nhau.
+        </p>
+
+        <p>
+            Một năm, hai trái tim, một tình yêu.
+        </p>
+
+        <strong>Made with love ❤️</strong>
+
+    </footer>
+
+</div>
+
+
+<script>
+
+/* MẬT KHẨU WEBSITE */
+
+const correctPassword = "13012000";
+
+
+/* MỞ KHÓA */
+
+function unlockLove() {
+
+    const password =
+        document.getElementById("password").value;
+
+    if (password === correctPassword) {
+
+        document.getElementById("lockScreen").style.display = "none";
+
+        document.getElementById("envelopeScreen").style.display = "flex";
+
+    } else {
+
+        document.getElementById("error").innerText =
+            "Mật khẩu chưa đúng rồi, thử lại nhé! 💔";
+
+    }
+
+}
+
+
+/* MỞ PHONG THƯ */
+
+function openLetter() {
+
+    document.getElementById("envelopeScreen").style.display = "none";
+
+    document.getElementById("loveWebsite").style.display = "block";
+
+    updateDays();
+
+    startHearts();
+
+    window.scrollTo(0, 0);
+
+}
+
+
+/* NGÀY BẮT ĐẦU YÊU */
+
+/*
+   Hãy thay ngày bên dưới bằng ngày kỷ niệm
+   chính xác của hai bạn.
+   
+   Ví dụ: 19/11/2025
+   Viết theo dạng: 2025-11-19
+*/
+
+const loveDate = new Date("2025-11-19T00:00:00");
+
+
+/* TÍNH SỐ NGÀY YÊU */
+
+function updateDays() {
+
+    const today = new Date();
+
+    const difference = today - loveDate;
+
+    const days = Math.max(
+        0,
+        Math.floor(difference / (1000 * 60 * 60 * 24))
+    );
+
+    document.getElementById("days").innerText =
+        days + " ngày ❤️";
+
+}
+
+
+/* NÚT BÍ MẬT */
+
+function showLove() {
+
+    document.getElementById("surprise").innerHTML =
+        "Chồng ơiii! Em yêu chồng nhiều lắm! 😘❤️💕";
+
+}
+
+
+/* HIỆU ỨNG TRÁI TIM BAY */
+
+let heartInterval = null;
+
+function startHearts() {
+
+    if (heartInterval !== null) return;
+
+    heartInterval = setInterval(function() {
+
+        const heart = document.createElement("div");
+
+        heart.className = "floating-heart";
+
+        const hearts = ["❤️", "💕", "💗", "💖", "💘"];
+
+        heart.innerHTML =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 6000);
+
+    }, 500);
+
+}
+
+</script>
+
+</body>
+</html>
